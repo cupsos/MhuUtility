@@ -29,21 +29,14 @@ namespace MhuUtility
             {
                 var InstallProc = new Process()
                 {
-                    StartInfo = new ProcessStartInfo()
-                    {
-                        FileName = "adb",
-                        Arguments = "install -r " + apkPath
-                    }
+                    StartInfo = new ProcessStartInfo("adb", "install -r " + apkPath)
                 };
                 InstallProc.Start();
                 InstallProc.WaitForExit();
                 new Process()
                 {
-                    StartInfo = new ProcessStartInfo()
-                    {
-                        FileName = "adb",
-                        Arguments = "shell monkey -p com.MhuGames.miniPuzzleFriends -c android.intent.category.LAUNCHER 1"
-                    }
+                    StartInfo = new ProcessStartInfo("adb",
+                    "shell monkey -p " + Application.identifier + " -c android.intent.category.LAUNCHER 1")
                 }.Start();
             }
         }
@@ -52,11 +45,7 @@ namespace MhuUtility
         {
             new Process()
             {
-                StartInfo = new ProcessStartInfo()
-                {
-                    FileName = "adb",
-                    Arguments = "logcat Unity:* *:S"
-                }
+                StartInfo = new ProcessStartInfo("adb", "logcat Unity:* *:S")
             }.Start();
         }
     }
