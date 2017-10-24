@@ -6,7 +6,7 @@ namespace MhuUtility
 {
     public class VisualStudio : EditorWindow
     {
-        private static readonly string PROJECT_ROOT = Directory.GetParent(Application.dataPath).ToString();
+        private static readonly string PROJECT_ROOT = Directory.GetParent(Application.dataPath).FullName;
         private static readonly string TEMP_BIN = Path.Combine(PROJECT_ROOT, "Temp", "UnityVS_bin");
         private static readonly string TEMP_OBJ = Path.Combine(PROJECT_ROOT, "Temp", "UnityVS_obj");
 
