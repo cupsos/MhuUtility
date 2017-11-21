@@ -23,4 +23,10 @@ public class TransformGroup : MonoBehaviour
                 child.transform.localPosition += diff;
         }
     }
+
+    public void MultiplyPos(float value)
+    {
+        foreach (Transform child in this.transform)
+            child.transform.localPosition *= value;
+    }
 }
